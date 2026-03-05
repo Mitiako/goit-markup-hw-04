@@ -553,6 +553,10 @@ box-shadow:
     gap: 16px;
 }
 
+.team-web {
+    fill: #f4f4fd;
+}
+
 /* Права колонка футера: вертикальний контейнер для заголовка і списку соцмереж */
 .footer-social {
     display: flex;
