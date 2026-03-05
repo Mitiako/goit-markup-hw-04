@@ -382,7 +382,7 @@ box-shadow:
 /* Зміна кольору кнопки соцмережі при наведенні або фокусі */
 .social-link:hover,
 .social-link:focus {
-    background-color: #404BBF;
+    background-color: #404bbf;
 }
 
 
