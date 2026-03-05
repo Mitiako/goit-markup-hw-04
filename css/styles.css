@@ -47,28 +47,54 @@ img {
     text-align: center;
     color: #2e2f42;
 }
-
 /* Header */
 
+/* Верхня частина сайту. Відповідає за логотип, головне меню та контакти. Має нижню межу і тінь, щоб відділяти хедер від контенту */
 .site-header {
 border-bottom: 1px solid #e7e9fc;
-
+box-shadow:
+        0px 2px 1px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 1px 6px rgba(46, 47, 66, 0.08);
 }
+
+/* Внутрішній контейнер хедера: тримає логотип, меню та контакти в одному рядку */
 .header-container {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #e7e9fc;
 }
 
+/* Активний пункт меню: підсвічує сторінку, на якій зараз знаходиться користувач */
+.current {
+    color: #404bbf;
+    position: relative;
+}
+
+/* Декоративне підкреслення активного пункту меню, вирівняне по ширині посилання */
+.current::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 4px;
+    background-color: #404bbf;
+    border-radius: 2px;
+}
+
+/* Основна навігація сайту: логотип + список посилань */
 .main-nav {
     display: flex;
     align-items: center;
 }
 
+/* Відступ логотипа від меню, щоб створити правильний простір у хедері */
 .site-header .logo {
     margin-right: 76px;
 }
 
+/* Стилі логотипа: шрифт, розмір, колір та оформлення бренду */
 .logo {
     font-family: "Raleway", sans-serif;
     font-size: 18px;
@@ -79,15 +105,18 @@ border-bottom: 1px solid #e7e9fc;
     color: #4d5ae5;
 }
 
+/* Темніший акцент у логотипі для виділення слова “Studio” */
 .logo-accent {
     color: #2e2f42;
 }
 
+/* Горизонтальний список пунктів меню з рівними проміжками */
 .nav-list {
     display: flex;
     gap: 40px;
 }
 
+/* Посилання меню: базові стилі тексту, відступи та поведінка в нормальному стані */
 .nav-link {
     display: block;
     padding-top: 24px;
@@ -98,24 +127,28 @@ border-bottom: 1px solid #e7e9fc;
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
+/* Зміна кольору пункту меню при наведенні або фокусі */
 .nav-link:hover,
 .nav-link:focus {
     color: #404bbf;
    
 }
 
+/* Скидання курсиву у тега <address>, щоб текст виглядав як у макеті */
 .contacts-address {
     font-style: normal;
 }
 
+/* Горизонтальний список контактів з відступами між елементами */
 .contacts {
     display: flex;
     gap: 40px;
 }
 
+/* Стилі посилань контактів: колір, відступи та читабельність */
 .contacts-link {
     display: block;
     padding-top: 24px;
@@ -125,27 +158,28 @@ border-bottom: 1px solid #e7e9fc;
     color: #434455;
 }
 
-.contacts-link:hover,
-.contacts-link:focus {
-    color: #404bbf;
-}
+
 
 /* Hero */
+
+/* Hero-section: великий верхній блок з фоновим зображенням і затемненням. Центрується і має фіксовану ширину 1440px */
 .hero {
+    max-width: 1440px;
     padding-top: 188px;
     padding-bottom: 188px;
-
+    
     background-image:
         linear-gradient(to bottom,
             rgba(46, 47, 66, 0.7),
             rgba(46, 47, 66, 0.7)),
         url(../images/people-office1.jpg);
-
+    
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
+/* Внутрішній контейнер Hero: вирівнює заголовок і кнопку по центру та задає вертикальні відступи */
 .hero-container {
     display: flex;
     flex-direction: column;
@@ -153,6 +187,7 @@ border-bottom: 1px solid #e7e9fc;
     gap: 48px;
 }
 
+/* Головний заголовок Hero: великий, білий, вирівняний по центру, з обмеженою шириною для читабельності */
 .hero-title {
     max-width: 496px;
     font-size: 56px;
@@ -163,7 +198,7 @@ border-bottom: 1px solid #e7e9fc;
 }
 
 
-
+/* Кнопка Hero: стилі зовнішнього вигляду, розміру та плавної зміни фону при взаємодії */
 .hero-button {
     display: block;
     justify-content: center;
@@ -178,12 +213,14 @@ border-bottom: 1px solid #e7e9fc;
     letter-spacing: 0.04em;
     background-color: #4D5AE5;
     color: #ffffff;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     border: none;
     cursor: pointer;
     border-radius: 4px;
 }
 
+/* Зміна кольору кнопки при наведенні або фокусі */
 .hero-button:hover,
 .hero-button:focus {
     background-color: #404BBF;
@@ -248,6 +285,7 @@ border-bottom: 1px solid #e7e9fc;
 
 /* Our Team */
 
+/* Секція команди: великий блок з фоновим кольором і внутрішніми відступами */
 .team-section {
     padding: 120px 0;
     background-color: #F4F4FD
@@ -257,28 +295,31 @@ border-bottom: 1px solid #e7e9fc;
     margin-bottom: 72px;
 }
 
+/* Список карток команди, розташованих у ряд з рівними проміжками */
 .team {
     display: flex;
     gap: 24px;
 }
 
+/* Окрема картка учасника команди: білий фон, тінь і заокруглення нижніх кутів */
 .team-item {
     background-color: #ffffff;
     border-radius: 0 0 4px 4px;
     flex-basis: calc((100% - 72px) / 4);
     box-shadow:
-        0px 2px 1px rgba(46, 47, 66, 0.08),
+        0px 1px 6px rgba(46, 47, 66, 0.08),
         0px 1px 1px rgba(46, 47, 66, 0.16),
-        0px 1px 6px rgba(46, 47, 66, 0.08);
+        0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
+/* Фото учасника: блочний елемент, що займає всю ширину картки */
 .team-item img {
     display: block;
         width: 100%;
         height: auto;
 }
 
-
+/* Ім’я учасника: напівжирний текст, вирівняний по центру */
 .team-title {
     margin-bottom: 8px;
     font-weight: 500;
@@ -289,6 +330,7 @@ border-bottom: 1px solid #e7e9fc;
         color: #2e2f42;
 }
 
+/* Контейнер під фото: містить ім’я, посаду та список соцмереж з вертикальними відступами */
 .team-card {
     padding: 32px 0;
 }
@@ -301,41 +343,54 @@ border-bottom: 1px solid #e7e9fc;
         color: #434455;
 }
 
-.social-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #4D5AE5;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+/* Список соцмереж: горизонтальне вирівнювання і рівні проміжки між іконками */
 .social {
     display: flex;
     gap: 24px;
     justify-content: center;
 }
 
-/*250ms cubic-bezier(0.4, 0, 0.2, 1)*/
+/* Окремий елемент списку соцмереж: квадрат 40×40 для розміщення круглої кнопки */
+.social-item {
+    width: 40px;
+    height: 40px;
+}
+
+/* Кнопка соцмережі: кругла, синя, з центруванням іконки та плавною зміною фону */
+.social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #4D5AE5;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Іконка соцмережі: білий колір через fill, розмір 16×16 */
+.social-link svg {
+    fill: #f4f4fd;
+}
+
+/* Зміна кольору кнопки соцмережі при наведенні або фокусі */
 .social-link:hover,
 .social-link:focus {
     background-color: #404BBF;
-    
 }
 
 
 /* Portfolio */
 
-.potfolio-section {
+/* Секція портфоліо: великий блок із внутрішніми відступами зверху та знизу */
+.portfolio-section {
     padding: 120px 0;
 }
 
+/* Заголовок секції: відступ знизу, щоб відокремити заголовок від контенту секції */
 .section-title {
     margin-bottom: 72px;
 }
 
+/* Сітка карток портфоліо: три колонки, з проміжками між рядками та стовпцями */
 .portfolio {
     display: flex;
     flex-wrap: wrap;
@@ -343,22 +398,68 @@ border-bottom: 1px solid #e7e9fc;
     row-gap: 48px;
 }
 
+/* Контейнер для картинки: задає позиціонування та приховує overlay за межами блоку */
+.portfolio-thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Окрема картка портфоліо: елемент списку з фіксованою шириною та плавною появою тіні */
 .portfolio-item {
     width: calc((100% - 48px) / 3);
 }
 
+/* Картинка в картці портфоліо: блочний елемент, що займає всю ширину контейнера та зберігає пропорції */
 .portfolio-item img {
     display: block;
         width: 100%;
         height: auto;
 }
 
+/* Текстовий overlay: прихований блок поверх картинки, який виїжджає знизу при наведенні */
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px;
+
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #f4f4fd;
+
+    background-color: #4d5ae5;
+
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Поява overlay при наведенні: піднімає текст на видиму область */
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0%);
+}
+
+/* Тінь картки при наведенні: підсвічує елемент і створює ефект підняття */
+.portfolio-item:hover {
+    box-shadow:
+        0px 1px 6px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+/* Картка портфоліо: плавна поява тіні при наведенні завдяки transition */
+.portfolio-item {
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Нижня частина картки: рамка, відступи та контейнер для назви й категорії */
 .portfolio-card {
     padding: 32px 16px;
     border: 1px solid #e7e9fc;
     border-top: none;
 }
 
+/* Назва проєкту: напівжирний заголовок, вирівняний по лівому краю */
 .portfolio-title {
     margin-bottom: 8px;
     font-weight: 500;
@@ -368,6 +469,7 @@ border-bottom: 1px solid #e7e9fc;
     color: #2e2f42;
 }
 
+/* Категорія проєкту: сірий текст із нормальним міжрядковим інтервалом */
 .portfolio-text {
     line-height: 1.5;
     letter-spacing: 0.02em;
